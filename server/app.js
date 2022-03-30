@@ -26,12 +26,13 @@ app.all("*",function(req,res,next){
 
 // 路由
 app.use('/', require('./routes/index'))
+app.use('/users', require('./routes/users'))
 
-// 访问单页
-app.get('*', function (req, res) {
- var html = fs.readFileSync(path.resolve(__dirname, '../dist/index.html'), 'utf-8')
- res.send(html)
-})
+// // 访问单页，开发时需将其注释
+// app.get('*', function (req, res) {
+//  var html = fs.readFileSync(path.resolve(__dirname, '../dist/index.html'), 'utf-8')
+//  res.send(html)
+// })
 
 // 监听端口
 app.listen(8081, function () { console.log('成功监听8081端口') })
